@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="page-title">LavishLoo Products</h1>
+<div class="product-grid">
+  {% for tech in technologies %}
+    <div class="product-card">
+      <img src="{{ tech.image }}" class="product-image" alt="{{ tech.name }}">
+      <div class="product-card-body">
+        <h5>{{ tech.name }}</h5>
+        <p>£{{ tech.price }}</p>
+        <a href="{{ url_for('singleProductPage', techId=tech.number) }}" class="product-button">View Details</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
